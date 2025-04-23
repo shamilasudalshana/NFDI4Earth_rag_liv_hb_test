@@ -12,10 +12,10 @@ COPY Chatbot.py .
 COPY doc_links.yaml .
 COPY pages/ ./pages/
 
-COPY .env .
+#COPY .env .
 
 # copy hidden streamlit settings in case in the future
-COPY .streamlit/ .streamlit/
+#COPY .streamlit/ .streamlit/
 
 # Expose Streamlit port
 EXPOSE 8501
