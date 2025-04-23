@@ -3,7 +3,7 @@ import streamlit as st
 from langchain_openai.chat_models import ChatOpenAI
 import bs4
 from langchain import hub
-from langchain_chroma import Chroma
+from langchain.vectorstores import FAISS
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -80,7 +80,12 @@ def generate_response(input_text, doc_links):
 
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
     splits = text_splitter.split_documents(docs)
-    vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings(openai_api_key=openai_api_key))
+    #vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings(openai_api_key=openai_api_key))
+
+    vectorstore = FAISS.from_documents(
+    documents=splits,
+    embedding=OpenAIEmbeddings(openai_api_key=openai_api_key)
+)
     retriever = vectorstore.as_retriever()
     docs_with_scores = vectorstore.similarity_search_with_score(input_text, k=3)
     similar_docs_with_scores = vectorstore.similarity_search_with_score(input_text)
