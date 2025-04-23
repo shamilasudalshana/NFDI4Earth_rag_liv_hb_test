@@ -1,0 +1,9 @@
+streamlit
+openai
+langchain
+langchain-community
+langchain-core
+chromadb
+python-dotenv
+PyYAML
+bs4
