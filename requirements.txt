@@ -3,6 +3,7 @@ openai
 langchain
 langchain-community
 langchain-core
+langchain-openai
 chromadb
 python-dotenv
 PyYAML
