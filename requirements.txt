@@ -5,6 +5,7 @@ langchain-community
 langchain-core
 langchain-openai
 chromadb
+langchain_chroma
 python-dotenv
 PyYAML
 bs4
