@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  chatbot:
+    build: .  
+    ports:
+      - "8501:8501"
+    environment:
+      - .env
+      #- OPENAI_API_KEY=${OPENAI_API_KEY}  # Pass the environment variable
+    restart: unless-stopped
