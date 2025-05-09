@@ -1,5 +1,4 @@
-FROM python:3.11.5-slim-bookworm
-# Use Python 3.9 slim base image
+FROM python:3.11-slim
 
 WORKDIR /app  # Set working directory inside the container
 
@@ -11,11 +10,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY Chatbot.py .
 COPY doc_links.yaml .
 COPY pages/ ./pages/
-
-#COPY .env .
-
-# copy hidden streamlit settings in case in the future
-#COPY .streamlit/ .streamlit/
 
 # Expose Streamlit port
 EXPOSE 8501
